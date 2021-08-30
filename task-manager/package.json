@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "mongodb": "^4.1.1",
-    "mongoose": "^6.0.2"
+    "mongoose": "^6.0.2",
+    "prettier": "^2.3.2"
   },
-  "devDependencies": {},
   "description": ""
 }
