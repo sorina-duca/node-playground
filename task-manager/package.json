@@ -1,7 +1,6 @@
 {
   "name": "task-manager",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +11,7 @@
   "dependencies": {
     "mongodb": "^4.1.1",
     "mongoose": "^6.0.2"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
