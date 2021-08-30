@@ -1,21 +1,27 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
     useNewUrlParser: true,
     autoIndex: true,
     useUnifiedTopology: true,
-})
+});
 
 const User = mongoose.model('User', {
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
     },
     age: {
-        type: Number, required: true
+        type: Number,
+        required: true,
+        validate(value) {
+            if (value < 18) {
+                throw new Error('You must be over 18');
+            }
+        },
     },
-})
+});
 
 const Task = mongoose.model('Task', {
     description: {
@@ -25,27 +31,30 @@ const Task = mongoose.model('Task', {
     completed: {
         type: Boolean,
         required: true,
-    }
-})
+    },
+});
 
-new Task({
-    description: 'breathing exercises',
-    completed: false
-}).save().then((result) => {
-    console.log(result);
-}).catch((error) => {
-    console.log(error)
-})
-
-
-
-// const me =  new User({
-//     name: 'Sorina',
-//     age: '36'
+// new Task({
+//     description: 'breathing exercises',
+//     completed: false,
 // })
-//
-// me.save().then(() => {
-//     console.log(me);
-// }).catch((error) => {
-//     console.log(error)
-// })
+//     .save()
+//     .then((result) => {
+//         console.log(result);
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     });
+
+const me = new User({
+    name: 'Andy',
+    age: '3',
+});
+
+me.save()
+    .then(() => {
+        console.log(me);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
