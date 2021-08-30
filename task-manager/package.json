@@ -11,7 +11,8 @@
   "dependencies": {
     "mongodb": "^4.1.1",
     "mongoose": "^6.0.2",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "validator": "^13.6.0"
   },
   "description": ""
 }
